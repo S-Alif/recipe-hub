@@ -7,6 +7,7 @@ body{
     margin: 0;
     padding: 0;
     font-family: var(--font-family);
+    background-color: var(--bg-color);
     line-height: 1.5;
     overflow-x: hidden;
 }
@@ -15,6 +16,13 @@ body{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+/*for main layout*/
+.main-layout{
+    width: 100%;
+    min-height: 100vh;
+    display: block;
 }
 
 /*------------------
@@ -101,7 +109,6 @@ body{
 .btn:hover {
     opacity: 0.8;
 }
-
 
 
 /*

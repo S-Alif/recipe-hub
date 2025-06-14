@@ -1,2 +1,6 @@
 @import "./assets/css/_global.css";
 @import "./assets/css/_variables.css";
+@import "./assets/css/_responsive.css";
+
+/*components*/
+@import "./assets/css/navbar.css";
