@@ -11,6 +11,7 @@ import RecipeByMealType from "./pages/RecipeByMealType.jsx";
 import SearchRecipe from "./pages/SearchRecipe.jsx";
 import Page404 from "./pages/Page404.jsx";
 
+// router
 const router = createBrowserRouter([
     {
         path: "/",
@@ -44,13 +45,13 @@ const router = createBrowserRouter([
             {
                 path: "/search",
                 element: <SearchRecipe />
+            },
+            {
+                path: "*",
+                element: <Page404 />
             }
         ]
     },
-    {
-        path: "*",
-        element: <Page404 />
-    }
 ])
 
 createRoot(document.getElementById('root')).render(
