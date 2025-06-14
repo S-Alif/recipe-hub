@@ -1,6 +1,9 @@
-const MainLayout = ({ children }) => {
+import {Outlet} from "react-router";
+
+
+const MainLayout = () => {
     return (
-        <div>{children}</div>
+        <div>{<Outlet />}</div>
     )
 }
 
