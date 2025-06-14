@@ -18,3 +18,4 @@ Again this is for absolute beginners. Assuming beginners don't know **tailwind c
 - `#FFB823`
 - `#708A58`
 - `#2D4F2B`
+- `E7EFC7`
