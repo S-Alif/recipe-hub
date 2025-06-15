@@ -16,7 +16,7 @@ const Navbar = () => {
                     <div>
                         <Link to="/" className="navbar-brand btn link text-deep-green fw-bold">
                             <img src={logo} alt="logo" />
-                            <p>RecipeHub</p>
+                            <p className={"text-white"}>RecipeHub</p>
                         </Link>
                     </div>
                     
@@ -29,7 +29,7 @@ const Navbar = () => {
                                 <Link to={"/#home"} className={"btn link"}>Home</Link>
                             </li>
                             <li>
-                                <Link to={"#about"} className={"btn link"}>About Us</Link>
+                                <Link to={"/#about"} className={"btn link"}>About Us</Link>
                             </li>
                             <li>
                                 <Link to={"/#popular"} className={"btn link"}>Popular</Link>

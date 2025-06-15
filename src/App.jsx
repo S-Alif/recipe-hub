@@ -12,6 +12,7 @@ const App = () => {
     const [highRatedRecipes, setHighRatedRecipes] = useState([])
     const dataLimit = 5 // number or cards we will request from server
     
+    // fetch the recipes
     useEffect(() => {
         const getRecipes = async () => {
             // popular recipe
@@ -64,6 +65,14 @@ const App = () => {
                 <div className="container">
                     <SectionTitle text={"Popular Recipes"} />
                     <DisplayRecipeCards recipes={popularRecipes} />
+                </div>
+            </section>
+            
+            {/*high recipe*/}
+            <section id={"highest-rated"} className={"section-layout"}>
+                <div className="container">
+                    <SectionTitle text={"Highest Rated Recipes"} />
+                    <DisplayRecipeCards recipes={highRatedRecipes} />
                 </div>
             </section>
     
