@@ -71,6 +71,20 @@ img{
     object-position: center;
 }
 
+/*footer*/
+.footer {
+    width: 100%;
+    height: auto;
+    padding: 20px 0;
+    background: var(--bg-green)
+}
+.footer div{
+    display: flex;
+    gap: 4px;
+    color: #ffffff;
+    justify-content: center;
+}
+
 
 /*------------------
     reusable classes
