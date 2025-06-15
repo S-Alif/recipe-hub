@@ -5,6 +5,7 @@ import DisplayRecipeCards from "./components/DisplayRecipeCards.jsx";
 import {useEffect, useState} from "react";
 import apiHandler from "./utils/api-handler.js";
 import apiRoutes from "./constants/api-constants.js";
+import {mealTypes} from "./components/data/recipeData.js";
 
 const App = () => {
     
@@ -65,6 +66,26 @@ const App = () => {
                 <div className="container">
                     <SectionTitle text={"Popular Recipes"} />
                     <DisplayRecipeCards recipes={popularRecipes} />
+                </div>
+            </section>
+            
+            {/*meal types*/}
+            <section id={"highest-rated"} className={"section-layout"}>
+                <div className="container">
+                    <SectionTitle text={"Visit Every Meal Type"} />
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5">
+                        {
+                            mealTypes.map((type, index) => (
+                                <Link
+                                    to={`/recipe-list/meal-type/${type}`}
+                                    key={index}
+                                    className={"btn link bg-green text-center"}
+                                >
+                                    {type}
+                                </Link>
+                            ))
+                        }
+                    </div>
                 </div>
             </section>
             
