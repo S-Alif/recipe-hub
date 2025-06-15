@@ -1,7 +1,19 @@
 import RecipeCard from "./cards/RecipeCard.jsx";
 import {Link} from "react-router";
+import Loader from "./Loader.jsx";
 
-const DisplayRecipeCards = ({ recipes = [], showSeeMoreBtn = true }) => {
+const DisplayRecipeCards = ({
+    recipes = [],
+    showSeeMoreBtn = true,
+    loading = false
+}) => {
+    
+    if(loading) {
+        return (
+            <Loader />
+        )
+    }
+    
     return (
         <>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 pt-3">

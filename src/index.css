@@ -5,6 +5,7 @@
 /*components*/
 @import "./assets/css/navbar.css";
 @import "./assets/css/pagination.css";
+@import "./assets/css/loader.css";
 
 /*pages*/
 @import "./assets/css/home.css";

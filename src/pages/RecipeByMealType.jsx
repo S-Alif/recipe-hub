@@ -14,6 +14,7 @@ const RecipeByMealType = () => {
     
     const [recipes, setRecipes] = useState([])
     const [total, setTotal] = useState(0)
+    const [loading, setLoading] = useState(true)
     const limit = 8
     
     // search params
@@ -21,6 +22,7 @@ const RecipeByMealType = () => {
     
     // fetch recipes
     const fetchRecipes = async () => {
+        // add the params
         let sortingParams = ""
         if(sort == "popular"){
             sortingParams = "&sortBy=reviewCount&order=desc"
@@ -28,6 +30,8 @@ const RecipeByMealType = () => {
         if(sort == "highRated"){
             sortingParams = "&sortBy=rating&order=desc"
         }
+        
+        setLoading(true) // start loader
         
         const data = await apiHandler(
             `${apiRoutes.recipeByMealType}/${mealType}?limit=${limit}&skip=${(page-1) * limit}${sortingParams}`,
@@ -37,6 +41,7 @@ const RecipeByMealType = () => {
             setRecipes(data.recipes)
             setTotal(data.total)
         }
+        setLoading(false)
     }
     
     // load the first data
@@ -69,7 +74,7 @@ const RecipeByMealType = () => {
                         </select>
                     </div>
                     
-                    <DisplayRecipeCards recipes={recipes} showSeeMoreBtn={false}/>
+                    <DisplayRecipeCards recipes={recipes} showSeeMoreBtn={false} loading={loading}/>
                     
                     {/*pagination*/}
                     <Pagination
@@ -79,6 +84,7 @@ const RecipeByMealType = () => {
                         setPage={(e) => {
                             setNewSearchParams("page", e)
                         }}
+                        loading={loading}
                     />
                 </div>
             </section>

@@ -1,10 +1,16 @@
 import React from "react";
 
-const Pagination = ({ total, currentPage, setPage, limit }) => {
+const Pagination = ({
+    total,
+    currentPage,
+    setPage,
+    limit,
+    loading=false
+}) => {
 
     const totalPages = Math.ceil(total / limit)
     
-    if (totalPages <= 1) return null
+    if (totalPages <= 1 || loading) return null
     
     // previous page
     const handlePrev = () => {

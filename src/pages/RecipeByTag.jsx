@@ -14,6 +14,7 @@ const RecipeByTag = () => {
     
     const [recipes, setRecipes] = useState([])
     const [total, setTotal] = useState(0)
+    const [loading, setLoading] = useState(true)
     const limit = 8
     
     // search params
@@ -29,6 +30,8 @@ const RecipeByTag = () => {
             sortingParams = "&sortBy=rating&order=desc"
         }
         
+        setLoading(true)
+        
         const data = await apiHandler(
             `${apiRoutes.recipeByTag}/${tagName}?limit=${limit}&skip=${(page-1) * limit}${sortingParams}`,
             "GET"
@@ -37,6 +40,7 @@ const RecipeByTag = () => {
             setRecipes(data.recipes)
             setTotal(data.total)
         }
+        setLoading(false)
     }
     
     // load the first data
@@ -69,7 +73,7 @@ const RecipeByTag = () => {
                         </select>
                     </div>
                     
-                    <DisplayRecipeCards recipes={recipes} showSeeMoreBtn={false}/>
+                    <DisplayRecipeCards recipes={recipes} showSeeMoreBtn={false} loading={loading}/>
                     
                     {/*pagination*/}
                     <Pagination
@@ -79,6 +83,7 @@ const RecipeByTag = () => {
                         setPage={(e) => {
                             setNewSearchParams("page", e)
                         }}
+                        loading={loading}
                     />
                 </div>
             </section>
