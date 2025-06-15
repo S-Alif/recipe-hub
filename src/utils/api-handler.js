@@ -7,8 +7,11 @@ const apiHandler = async (url, method = "GET", data = {}) => {
             method: method,
             headers: {
                 'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
+            }
+        }
+        
+        if(method !== 'GET') {
+            options.body = JSON.stringify(data)
         }
         
         // fetch the data from the server - returns JSON response

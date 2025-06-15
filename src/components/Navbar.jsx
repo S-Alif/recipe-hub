@@ -29,10 +29,7 @@ const Navbar = () => {
                                 <Link to={"/#home"} className={"btn link"}>Home</Link>
                             </li>
                             <li>
-                                <Link to={"/#about"} className={"btn link"}>About Us</Link>
-                            </li>
-                            <li>
-                                <Link to={"/#featured"} className={"btn link"}>Featured</Link>
+                                <Link to={"#about"} className={"btn link"}>About Us</Link>
                             </li>
                             <li>
                                 <Link to={"/#popular"} className={"btn link"}>Popular</Link>
