@@ -47,7 +47,7 @@ const RecipeByMealType = () => {
     // load the first data
     useEffect(() => {
         fetchRecipes()
-    }, [page, sort])
+    }, [page, sort, mealType])
     
     return (
         <section className={"page-section"} id={"recipe-by-tag"}>
