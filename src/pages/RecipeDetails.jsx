@@ -3,25 +3,42 @@ import {Link, useParams} from "react-router";
 import apiHandler from "../utils/api-handler.js";
 import apiRoutes from "../constants/api-constants.js";
 import {MessageCircle, Star} from "lucide-react";
+import Loader from "../components/Loader.jsx";
 
 const RecipeDetails = () => {
     const [recipeDetails, setRecipeDetails] = useState(null)
+    const [loading, setLoading] = useState(true)
     const {recipeId} = useParams()
     
     // fetch data
     useEffect(() => {
         const fetchRecipeDetails = async () => {
+            setLoading(true)
             const data = await apiHandler(
                 `${apiRoutes.recipe}/${recipeId}`,
                 "GET"
             )
-            console.log(data)
+            // console.log(data)
             if(data) {
                 setRecipeDetails(data)
             }
+            setLoading(false)
         }
         fetchRecipeDetails()
     }, [])
+    
+    // if loading show loader
+    if(loading) {
+        return (
+            <div className={"page-section"}>
+                <div className="section-layout">
+                    <div className="container">
+                        <Loader />
+                    </div>
+                </div>
+            </div>
+        )
+    }
     
     
     return (
