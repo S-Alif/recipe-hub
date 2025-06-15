@@ -4,14 +4,16 @@ import apiRoutes from "../constants/api-constants.js";
 import SectionTitle from "../components/SectionTitle.jsx";
 import DisplayRecipeCards from "../components/DisplayRecipeCards.jsx";
 import Pagination from "../components/Pagination.jsx";
+import useQueryParams from "../hooks/useQueryParams.jsx";
 
 const AllRecipe = () => {
     
     const [recipes, setRecipes] = useState([])
-    const [sort, setSort] = useState("newest")
-    const [page, setPage] = useState(1)
     const [total, setTotal] = useState(0)
     const limit = 8
+    
+    // search params
+    const {page = "1", sort = "newest", setNewSearchParams} = useQueryParams()
     
     // fetch recipes
     const fetchRecipes = async () => {
@@ -24,7 +26,7 @@ const AllRecipe = () => {
         }
         
         const data = await apiHandler(
-            `${apiRoutes.recipe}/?limit=${limit}&skip=${(page-1) * limit}${sortingParams}`,
+            `${apiRoutes.recipe}/?limit=${limit}&skip=${(parseInt(page)-1) * limit}${sortingParams}`,
             "GET"
         )
         if(data){
@@ -52,9 +54,9 @@ const AllRecipe = () => {
                             id="select-option"
                             value={sort}
                             onChange={async (e) => {
-                                setSort(e.target.value)
-                                if(page != 1) {
-                                   return setPage(1)
+                                setNewSearchParams("sort",e.target.value)
+                                if(page != "1") {
+                                   return setNewSearchParams("page", "1")
                                 }
                             }}
                             className={"select-sort-option"}
@@ -69,10 +71,12 @@ const AllRecipe = () => {
                     
                     {/*pagination*/}
                     <Pagination
-                        currentPage={page}
+                        currentPage={parseInt(page)}
                         limit={limit}
                         total={total}
-                        setPage={setPage}
+                        setPage={(e) => {
+                            setNewSearchParams("page", e)
+                        }}
                     />
                 </div>
             </section>

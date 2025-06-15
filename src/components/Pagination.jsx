@@ -13,7 +13,7 @@ const Pagination = ({ total, currentPage, setPage, limit }) => {
     
     // next page
     const handleNext = () => {
-        if (currentPage < totalPages) setPage(currentPage + 1);
+        if (currentPage < totalPages) setPage(currentPage + 1)
     }
     
     // clicking a page number
@@ -37,15 +37,17 @@ const Pagination = ({ total, currentPage, setPage, limit }) => {
                 Prev
             </button>
             
-            {pages.map((page) => (
-                <button
-                    key={page}
-                    onClick={() => handleClick(page)}
-                    className={`btn isBtn bg-green ${page === currentPage && "disabledNumber"}`}
-                >
-                    {page}
-                </button>
-            ))}
+            {
+                pages.map((page) => (
+                    <button
+                        key={page}
+                        onClick={() => handleClick(page)}
+                        className={`btn isBtn bg-green ${page == currentPage && "disabledNumber"}`}
+                    >
+                        {page}
+                    </button>
+                ))
+            }
             
             <button
                 onClick={handleNext}

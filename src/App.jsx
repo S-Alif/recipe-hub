@@ -45,7 +45,7 @@ const App = () => {
                     <div className="home-content p-3">
                         <h1 className="home-title text-white">Discover Delicious Recipes</h1>
                         <p className="home-subtitle text-white">Cook tasty meals with step-by-step guides.</p>
-                        <Link to="/recipe-list/" className="btn bg-primary link home-btn text-black">Explore Now</Link>
+                        <Link to="/recipe-list?page=1&sort=newest" className="btn bg-primary link home-btn text-black">Explore Now</Link>
                     </div>
                 </div>
             </section>
@@ -77,7 +77,7 @@ const App = () => {
                         {
                             mealTypes.map((type, index) => (
                                 <Link
-                                    to={`/recipe-list/meal-type/${type}`}
+                                    to={`/recipe-list/meal-type/${type}?page=1&sort=newest`}
                                     key={index}
                                     className={"btn link bg-green text-center"}
                                 >

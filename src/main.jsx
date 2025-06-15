@@ -29,7 +29,7 @@ const router = createBrowserRouter([
                         element: <AllRecipe />
                     },
                     {
-                        path: ":recipeId",
+                        path: "recipe/:recipeId",
                         element: <RecipeDetails />
                     },
                     {
@@ -48,6 +48,10 @@ const router = createBrowserRouter([
             },
             {
                 path: "*",
+                element: <Page404 />
+            },
+            {
+                path: "page-404",
                 element: <Page404 />
             }
         ]

@@ -4,7 +4,7 @@ import {ArrowRight} from "lucide-react";
 const DisplayTags = ({tag}) => {
     return (
         <Link
-            to={`/recipe-list/tag/${tag}`}
+            to={`/recipe-list/tag/${tag}?page=1&sort=newest`}
             className={"recipe-tags text-white fw-semi-bold"}
         >
             #{tag}
@@ -15,7 +15,7 @@ const DisplayTags = ({tag}) => {
 const MealTypes = ({mealType, index, totalItems}) => {
     return (
         <Link
-            to={`/recipe-list/meal-type/${mealType}`}
+            to={`/recipe-list/meal-type/${mealType}?page=1&sort=newest`}
             className={"fw-medium link text-black"}
         >
             {mealType}{index + 1 != totalItems && " | "}
@@ -32,7 +32,11 @@ const RecipeCard = ({item}) => {
             </div>
             <div className="card-body">
                 <div className="tags">
-                    {item?.tags.map((tag, index) => (<DisplayTags tag={tag} key={index}/>))}
+                    {
+                        item?.tags.map((tag, index) => (
+                            <DisplayTags tag={tag} key={index}/>
+                        ))
+                    }
                 </div>
                 <h3>{item?.name}</h3>
                 
@@ -49,8 +53,8 @@ const RecipeCard = ({item}) => {
                                 totalItems={item?.mealType.length}
                                 index={index}
                             />
-                        )
-                    )}
+                        ))
+                    }
                 </p>
                 
                 {/*cuisine*/}
@@ -61,7 +65,7 @@ const RecipeCard = ({item}) => {
                     {item?.cuisine}
                 </p>
                 
-                <Link to={`/recipe-list/${item?.id}`}
+                <Link to={`/recipe-list/recipe/${item?.id}`}
                       className={"btn bg-deep-green mt-3 link"}
                       style={{
                           display: "flex",
