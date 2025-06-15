@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
     /*main theme colors*/
@@ -15,7 +15,7 @@
     --btn-border-radius: 5px;
 
     /*fonts*/
-    --font-family: 'Playfair Display', serif;
+    --font-family: 'Noto Serif', serif;
 
     --font-normal: 400;
     --font-medium: 500;

@@ -4,6 +4,8 @@
 
 /*components*/
 @import "./assets/css/navbar.css";
+@import "./assets/css/pagination.css";
 
 /*pages*/
 @import "./assets/css/home.css";
+@import "./assets/css/recipe-details.css";

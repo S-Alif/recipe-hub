@@ -73,7 +73,7 @@ const App = () => {
             <section id={"highest-rated"} className={"section-layout"}>
                 <div className="container">
                     <SectionTitle text={"Visit Every Meal Type"} />
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 pt-3">
                         {
                             mealTypes.map((type, index) => (
                                 <Link

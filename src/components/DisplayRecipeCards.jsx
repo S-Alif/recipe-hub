@@ -1,7 +1,7 @@
 import RecipeCard from "./cards/RecipeCard.jsx";
 import {Link} from "react-router";
 
-const DisplayRecipeCards = ({ recipes = [] }) => {
+const DisplayRecipeCards = ({ recipes = [], showSeeMoreBtn = true }) => {
     return (
         <>
             <div
@@ -14,7 +14,7 @@ const DisplayRecipeCards = ({ recipes = [] }) => {
                 }
             </div>
             {
-                recipes.length > 0 &&
+                (recipes.length > 0 && showSeeMoreBtn) &&
                 <div className={"text-center pt-3"}>
                     <Link to={"/recipe-list"} className={"btn link bg-green"}>See more</Link>
                 </div>
